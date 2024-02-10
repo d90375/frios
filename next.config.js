@@ -56,7 +56,7 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ["."],
   },
-  output: "export",
+  // output: "export",
   poweredByHeader: false,
   trailingSlash: true,
   basePath: "",

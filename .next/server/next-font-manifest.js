@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{},\"appUsingSizeAdjust\":false,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/yauhenivaniushyn/projects/knodei-v1/src/app/layout\":[\"static/media/4211d34fd1c6f59f-s.p.woff2\",\"static/media/1c57ca6f5208a29b-s.p.woff2\",\"static/media/42d52f46a26971a3-s.p.woff2\",\"static/media/912a9cfe43c928d9-s.p.woff2\",\"static/media/8566543b237d01f8-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
