@@ -1,5 +1,7 @@
 import Image from "next/image";
 import SectionContainer from "../SectionContainer";
+import { dataMontage } from "@/data";
+import clsx from "clsx";
 
 const SuccessSVG = () => {
   return (
@@ -11,61 +13,31 @@ const SuccessSVG = () => {
   );
 };
 
-const Block = () => {
+const Block = ({ className }: { className?: string }) => {
   return (
-    <div className="bg-[#DDEFFF] flex items-center flex-col gap-[48px] rounded-[30px] shadow-custom p-[30px]">
-      <span className="text-[32px] font-jost font-bold leading-[48px]">
+    <div
+      className={clsx(
+        "bg-[#DDEFFF] w-auto flex items-center flex-col gap-[48px] rounded-[30px] shadow-custom p-[30px]",
+        className
+      )}
+    >
+      <span className="md:text-[32px] text-center md:text-start text-[24px] leading-[26px] font-jost font-extrabold md:leading-[48px]">
         Стандартный монтаж включает:
       </span>
 
-      <div className="flex flex-wrap gap-[30px]">
-        <div className="flex gap-[24px] w-[72px] h-[72px] bg-custom-gradient">
-          <span className="text-[#45B2EA] text-[44px] font-jost font-bold text-center">
-            1
-          </span>
-          <h5>Доставка оборудования к заказчику</h5>
-        </div>
-        <div className="flex gap-[24px] w-[72px] h-[72px] bg-custom-gradient">
-          <span className="text-[#45B2EA] text-[44px] font-jost font-bold text-center">
-            2
-          </span>
-          <h5 className="w-[230px] text-[15px] font-medium leading-normal">
-            2 Установка внешнего блока кондиционера под окном на несущую стену с
-            использованием стандартных кронштейнов
-          </h5>
-        </div>
-        <div className="flex gap-[24px] w-[72px] h-[72px] bg-custom-gradient">
-          <span className="text-[#45B2EA] text-[44px] font-jost font-bold text-center">
-            3
-          </span>
-          <h5 className="w-[230px] font-medium leading-normal">
-            Прокладывание коммуникаций (5 метров входит в стандартный монтаж)
-          </h5>
-        </div>
-        <div className="flex gap-[24px] w-[72px] h-[72px] bg-custom-gradient">
-          <span className="text-[#45B2EA] text-[44px] font-jost font-bold text-center">
-            4
-          </span>
-          <h5 className="w-[230px] font-medium leading-normal">
-            Подключение внутреннего блока
-          </h5>
-        </div>
-        <div className="flex gap-[24px] w-[72px] h-[72px] bg-custom-gradient">
-          <span className="text-[#45B2EA] text-[44px] font-jost font-bold text-center">
-            5
-          </span>
-          <h5 className="w-[230px] font-medium leading-normal">
-            Вакуумирование трассы и запуск системы
-          </h5>
-        </div>
-        <div className="flex gap-[24px] w-[72px] h-[72px] bg-custom-gradient">
-          <span className="text-[#45B2EA] text-[44px] font-jost font-bold text-center">
-            6
-          </span>
-          <h5 className="w-[230px] font-medium leading-normal">
-            Проверяете как работает оборудование и оплачиваете
-          </h5>
-        </div>
+      <div className="flex flex-col md:flex-row md:flex-wrap items-center md:items-start font-jost gap-4 md:gap-[30px]">
+        {dataMontage.map((el, index) => (
+          <div className="flex flex-col items-center md:flex-row gap-4 md:gap-[24px]">
+            <div className="flex items-center justify-center w-[72px] h-[72px] shadow-custom rounded-[20px] bg-custom-gradient">
+              <span className="text-[#45B2EA]  font-jost text-[44px] font-bold">
+                {index + 1}
+              </span>
+            </div>
+            <h5 className="text-[15px] mt-0  md:pt-2 max-w-max md:max-w-[229px] md:text-start text-center font-medium leading-[18px]">
+              {el}
+            </h5>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -80,22 +52,26 @@ export const Suggestion = () => {
         width="0"
         height="0"
         sizes="100vw"
-        className="w-full h-auto -z-10 inset-0 absolute"
+        className="w-full h-full lg:h-[800px]  -z-10 inset-0 absolute object-cover"
       />
-      <SectionContainer className="mb-[320px] relative">
-        <h2 className="text-white font-jost pt-[50px] pb-[53px] text-center text-[44px] font-extrabold leading-[48px]">
+      <SectionContainer className="pb-[36px] relative">
+        <h2 className="text-white font-jost pt-[50px] pb-[53px] text-center text-[32px] md:text-[44px] font-extrabold leading-[32px] md:leading-[48px]">
           Установка кондиционера — <br /> ответственный процесс
         </h2>
-        <div className="flex gap-[75px] ml-[75px]">
-          <Image
-            className=""
-            src="/assets/images/woman-1.png"
-            alt="woman-image"
-            width="358"
-            height="600"
-          />
-          <div className="text-white">
-            <p className="text-base leading-[24px] tracking-[0.44px] mb-[38px]">
+        <div className="flex flex-wrap flex-row">
+          <div className="relative basis-[calc(1/2-80px)]">
+            <Image
+              className="mx-auto lg:mx-[80px] h-auto w-[288px] md:w-[300px] lg:w-[358px]"
+              src="/assets/images/woman-1.png"
+              alt="woman-image"
+              width="358"
+              height="600"
+            />
+            <Block className="!flex lg:!hidden" />
+          </div>
+
+          <div className="text-white flex-1">
+            <p className="text-base text-center lg:text-start lg:mt-0 mt-[32px] leading-[24px] tracking-[0.44px] mb-[38px]">
               Профессиональный монтаж кондиционера – залог его долгой и надежной
               работы. В нашей компании работают опытные бригады монтажников,
               оснащённые профессиональным оборудованием и имеющие за плечами
@@ -120,15 +96,16 @@ export const Suggestion = () => {
                 1600 Br рублей.
               </p>
             </div>
-            <p className="text-base leading-[24px] tracking-[0.44px]">
+            <p className="text-base text-center lg:text-start leading-[24px] tracking-[0.44px]">
               Компания <span className="font-bold">FRIOS</span> нацелена на
               долговременное сотрудничество со своими клиентами, а потому берет
               на себя гарантийные обязательства за установку кондиционера,
               проведенную сотрудниками нашей организации.
             </p>
           </div>
+
+          <Block className="!hidden lg:!flex" />
         </div>
-        <Block />
       </SectionContainer>
     </div>
   );

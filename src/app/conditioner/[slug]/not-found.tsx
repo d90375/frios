@@ -10,7 +10,7 @@ export default function NotFound() {
       </div>
       <div className="max-w-md text-white">
         <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
-          Извините, мы не смогли найти эту страницу.
+          Извините, мы не смогли найти эту позицию.
         </p>
         <p className="mb-8">
           Но не волнуйтесь, вы можете найти множество других вещей на нашей

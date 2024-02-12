@@ -1,44 +1,104 @@
+"use client";
 import { headerNavLinks } from "@/data";
 import { Button } from "../Button";
 import Link from "next/link";
-// import { useRef, useState } from "react";
-// import link from "next/link";
 import { Logo } from "../Logo";
-import { headers } from "next/headers";
 import { Info } from "../Info";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import SectionContainer from "../SectionContainer";
+import clsx from "clsx";
+
+const NavBar = ({
+  className,
+  btnClassName,
+}: {
+  className?: string;
+  btnClassName?: string;
+}) => {
+  const pathname = usePathname();
+  return (
+    <nav
+      className={clsx(
+        "container flex justify-between gap-0 lg:gap-[20px] items-center mx-auto",
+        className
+      )}
+    >
+      {headerNavLinks.map((link) => (
+        <Link key={link.title} href={link.href}>
+          <Button
+            variant="link"
+            active={link.href === pathname}
+            className={clsx("uppercase", btnClassName)}
+          >
+            {link.title}
+          </Button>
+        </Link>
+      ))}
+    </nav>
+  );
+};
+
+const CallMeButton = () => {
+  return (
+    <Button className="hidden lg:block" size="m" variant="filled">
+      <a href="tel:+375 29 111 11 11">ПОЗВОНИТЕ МНЕ</a>
+    </Button>
+  );
+};
+
+const Aside = () => {
+  return (
+    <aside className="fixed transition-all z-20 !text-text bg-white w-full left-0 top-4 pb-[32px] px-[24px] pt-[24px]">
+      <div className="flex ml-2 flex-col gap-4 pb-4">
+        <Info socialMedia="s" color="black" hasMail hasTimeWork size="m" />
+      </div>
+      <NavBar
+        btnClassName="!text-text"
+        className="flex-col !items-start !gap-2 !p-0"
+      />
+    </aside>
+  );
+};
 
 export const Header = () => {
-  const headersList = headers();
-  const fullUrl = headersList.get("referer") || "";
+  const menuBtnEl = useRef<HTMLButtonElement | null>(null);
+  const [open, setOpen] = useState(false);
 
-  // const menuBtnEl = useRef<HTMLButtonElement>();
-  // const [state, setState] = useState(false);
+  useEffect(() => {
+    document.onclick = (e) => {
+      const target = e.target;
+      if (menuBtnEl.current && !menuBtnEl.current.contains(target as Node)) {
+        setOpen(false);
+      }
+    };
+    window.onscroll = () => setOpen(false);
+  }, []);
 
-  // useEffect(() => {
-  //   // Close the navbar menu when click outside the menu button or when scroll
-  //   document.onclick = (e) => {
-  //     const target = e.target;
-  //     if (menuBtnEl.current && !menuBtnEl.current.contains(target)) {
-  //       setState(false);
-  //     }
-  //   };
-  //   window.onscroll = () => setState(false);
-  // }, []);
-
-  console.log("new URL(fullUrl).pathname", new URL(fullUrl).pathname);
   return (
     <header className="divide-y divide-[#256AB4]">
-      <div className="flex container mx-auto justify-between items-center my-[30px] ">
+      <SectionContainer className="flex container mx-auto justify-between items-center pl-[32px] pr-[24px] md:pl-[16px] md:pr-[16px] my-[30px] ">
+        {open && <Aside />}
         <Logo />
-        {/* <div className="flex gap-x-3 items-center md:hidden">
+        <div className="hidden md:flex items-center justify-between gap-[26px]">
+          <Info socialMedia="m" color="white" size="m" />
+
+          <CallMeButton />
+        </div>
+        <div className="flex gap-x-3 items-center md:hidden">
           <button
             ref={menuBtnEl}
             role="button"
             aria-label="Open the menu"
-            className={`p-2 rounded-lg dark:text-gray-400 dark:hover:bg-gray-800 ${navMenuBtnColor}`}
-            onClick={() => setState(!state)}
+            className={clsx(
+              "p-2 rounded-lg z-30 duration-100",
+              open
+                ? "text-text hover:bg-[#C1E6F5] active:bg-[#C1E6F5]"
+                : "text-white hover:bg-primary active:bg-primary"
+            )}
+            onClick={() => setOpen((prev) => !prev)}
           >
-            {state ? (
+            {open ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -68,29 +128,10 @@ export const Header = () => {
               </svg>
             )}
           </button>
-        </div> */}
-        <div className="flex items-center justify-between gap-[26px]">
-          <Info socialMedia="l" size="m" />
-
-          <Button size="m" variant="filled">
-            ПОЗВОНИТЕ МНЕ
-          </Button>
         </div>
-      </div>
-      <div className="py-2">
-        <nav className="container flex justify-between gap-[20px] items-center mx-auto">
-          {headerNavLinks.map((link) => (
-            <Link key={link.title} href={link.href}>
-              <Button
-                variant="link"
-                // active={link.href === new URL(fullUrl).pathname}
-                className="uppercase"
-              >
-                {link.title}
-              </Button>
-            </Link>
-          ))}
-        </nav>
+      </SectionContainer>
+      <div className="py-2 hidden md:block">
+        <NavBar />
       </div>
     </header>
   );

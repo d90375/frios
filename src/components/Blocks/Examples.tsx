@@ -4,13 +4,13 @@ import SectionContainer from "../SectionContainer";
 
 export const Examples = () => {
   return (
-    <SectionContainer className="mt-[60px] mb-[100px]">
-      <p className="text-[32px] text-center font-jost font-bold mb-[40px] leading-[48px]">
+    <SectionContainer className="mt-[80px] mb-[60px] md:mb-[100px]">
+      <p className="text-[24px] md:text-[32px] text-center font-jost font-bold mb-[26px] md:mb-[40px] leading-[24px] md:leading-[48px]">
         Примеры наших работ
       </p>
       <CustomCarousel />
       <div className="flex w-full justify-center">
-        <Button className="mt-[55px] mb-[100px]" size="l">
+        <Button className="mt-[32px] md:mt-[55px]" size="l">
           ЗАКАЗАТЬ МОНТАЖ
         </Button>
       </div>

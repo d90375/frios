@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -6,22 +7,16 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      container: {
-        padding: {
-          DEFAULT: "1rem",
-          // sm: "2rem",
-          // lg: "4rem",
-          // xl: "5rem",
-          // "2xl": "6rem",
-        },
+      padding: {
+        DEFAULT: "1rem",
       },
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1100px",
-        xl: "1100px",
-        "2xl": "1100px",
-      },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1132px",
+      xl: "1132px",
+      "2xl": "1132px",
     },
     fontSize: {
       xs: "0.75rem",
@@ -59,6 +54,7 @@ module.exports = {
         tertiary: "var(--color-tertiary)",
         white: "var(--color-white)",
         disabled: "var(--color-disabled)",
+        text: "var(--color-text)",
       },
     },
   },

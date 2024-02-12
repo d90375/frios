@@ -110,7 +110,7 @@ export default function RootLayout({
         content="#000"
       />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-[#F2F9FD] text-[#263238] antialiased">
+      <body className="bg-[#F2F9FD] text-text antialiased">
         <div className="flex h-screen flex-col justify-between font-roboto">
           <Background />
           <Header />

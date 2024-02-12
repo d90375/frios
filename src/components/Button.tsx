@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { MouseEventHandler } from "react";
 
 type Props = {
   children: JSX.Element | string;
@@ -6,8 +7,9 @@ type Props = {
   className?: string;
   variant?: "link" | "filled" | "rounded";
   size?: "s" | "xm" | "m" | "l";
-  onClick: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   icon?: JSX.Element;
+  disabled?: boolean;
 };
 
 export const Button = ({
@@ -18,6 +20,7 @@ export const Button = ({
   variant = "filled",
   onClick,
   icon,
+  disabled,
 }: Props) => {
   return (
     <button
@@ -30,13 +33,14 @@ export const Button = ({
         size === "l" && "px-10 py-4 rounded-[10px]",
         variant === "link" &&
           active &&
-          "text-quaternary bg-white hover:text-primary",
+          "text-quaternary bg-transparent hover:text-primary hover:bg-white",
         variant === "link" &&
           !active &&
-          "text-white bg-transparent hover:text-quaternary",
+          "text-white bg-transparent hover:text-quaternary hover:bg-white",
         variant === "filled" && "bg-primary text-white hover:bg-quaternary",
         variant === "rounded" &&
-          "border !py-2 border-[#BDCFDB] hover:bg-gray-100",
+          "border !py-2 border-[#BDCFDB] bg-white text-text hover:bg-gray-100",
+        disabled && "pointer-events-none !bg-disabled",
         className
       )}
     >
@@ -45,7 +49,3 @@ export const Button = ({
     </button>
   );
 };
-
-// #BDCFDB
-
-// transition-all

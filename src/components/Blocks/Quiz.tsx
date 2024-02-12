@@ -3,7 +3,7 @@ import Image from "next/image";
 import SectionContainer from "../SectionContainer";
 import { Button } from "../Button";
 import { quizData } from "@/data";
-import { Fragment, useRef, useState } from "react";
+import { ChangeEventHandler, Fragment, useRef, useState } from "react";
 import clsx from "clsx";
 
 const Card = ({
@@ -41,33 +41,78 @@ const Card = ({
   );
 };
 
+const Input = ({
+  onChange,
+}: {
+  onChange: ChangeEventHandler<HTMLInputElement> | undefined;
+}) => {
+  return (
+    <div className="relative pr-3 py-2 bg-white w-[250px] md:w-[320px] flex items-center rounded-[50px]">
+      <svg
+        className="mx-4"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.8156 20.3453C20.6211 18.5396 23.4636 18.3732 25.3537 19.9622L26.7194 21.1128C28.278 22.4245 28.4365 24.7889 27.0707 26.3925C26.3259 27.2542 25.2775 27.7955 24.1438 27.9037C19.7798 28.4915 15.2018 26.3886 10.4072 21.5936C5.61257 16.7986 3.50849 12.2189 4.09626 7.85588C4.1268 7.5145 4.19774 7.17795 4.30759 6.85329C4.56176 6.10747 5.01044 5.44306 5.60728 4.92868C7.21209 3.56416 9.57505 3.72135 10.8866 5.28137L12.0358 6.64722C13.6273 8.53483 13.4622 11.3788 11.6567 13.1845L10.6766 14.1633C10.4153 14.4251 10.3298 14.8148 10.4574 15.162C10.814 16.1368 11.724 17.3547 13.1849 18.8157C14.647 20.2779 15.8648 21.1867 16.8383 21.5447C17.1857 21.672 17.5754 21.5859 17.8368 21.3241L18.8156 20.3453Z"
+          fill="#8DB932"
+        />
+      </svg>
+
+      <input
+        onChange={onChange}
+        type="text"
+        placeholder="Введите номер телефона"
+        className="w-full border-0 text-[#919699] bg-transparent outline-none"
+      />
+    </div>
+  );
+};
+
 export const Calculator = () => {
   const [step, setStep] = useState(1);
+  const [value, setValue] = useState("");
   const formState = useRef<string[]>([]);
 
   return (
-    <SectionContainer className="mt-[95px] flex flex-col items-center mb-[170px]">
+    <SectionContainer className="h-auto md:h-[532px] mt-[64px] md:mt-[130px] flex flex-col justify-between items-center mb-[60px] md:mb-[170px]">
       {quizData.map(({ step: currentStep, title, quiz }) => {
         return (
           currentStep === step && (
             <Fragment key={title}>
-              <h3 className="font-jost max-w-[680px] text-center text-[44px] mt-[95px] mb-[40px] font-extrabold leading-[48px]">
-                {currentStep === step && title}
-              </h3>
-              <div className="h-[163px]">
-                <div className="flex flex-row gap-[30px]">
-                  {quiz.map((el) => (
-                    <Card
-                      onClick={() => {
-                        setStep((prev) => (prev += 1));
-                        formState.current = [...formState.current, el.text];
+              <h2
+                className={clsx(
+                  "font-jost max-w-[680px] px-2 text-center text-[32px] leading-[32px] md:text-[44px] mb-[32px] md:mb-[40px] font-extrabold md:leading-[48px]",
+                  currentStep === 6 && "mt-0 md:mt-[250px]"
+                )}
+              >
+                {title}
+              </h2>
+              <div className="h-auto md:h-[163px]">
+                <div className="flex flex-col md:flex-row gap-[30px]">
+                  {currentStep < 5 &&
+                    quiz.map((el) => (
+                      <Card
+                        onClick={() => {
+                          setStep((prev) => (prev += 1));
+                          formState.current = [...formState.current, el.text];
+                        }}
+                        key={el.text}
+                        title={el.text}
+                        index={step}
+                        url={currentStep === 1 ? el.url : undefined}
+                      />
+                    ))}
+                  {currentStep === 5 && (
+                    <Input
+                      onChange={(e) => {
+                        setValue(e.target.value);
                       }}
-                      key={el.text}
-                      title={el.text}
-                      index={step}
-                      url={currentStep === 1 ? el.url : undefined}
                     />
-                  ))}
+                  )}
                 </div>
               </div>
             </Fragment>
@@ -92,13 +137,20 @@ export const Calculator = () => {
               />
             </svg>
           }
-          className="my-[39px] bg-[#FC451C] hover:bg-red-400"
+          className={clsx(
+            "my-[39px]",
+            value == ""
+              ? "!bg-disabled pointer-events-none"
+              : "!bg-[#FC451C] hover:!bg-red-400"
+          )}
           size="l"
-          onClick={() => {}}
+          onClick={() => {
+            setStep(6);
+          }}
         >
           ПОЛУЧИТЬ
         </Button>
-      ) : (
+      ) : step < 5 ? (
         <Button
           className="my-[39px]"
           size="l"
@@ -108,14 +160,14 @@ export const Calculator = () => {
         >
           ДАЛЕЕ
         </Button>
-      )}
+      ) : null}
 
       <div className="flex flex-row gap-[14px]">
-        {[...Array(5)].map((_el, index) => (
+        {[...Array(6)].map((_el, index) => (
           <div
             key={index}
             className={clsx(
-              "rounded-[10px] w-[41px] h-2",
+              "rounded-[10px] w-[30px] md:w-[41px] h-2",
               step === index + 1 ? "bg-primary" : "bg-disabled"
             )}
           />

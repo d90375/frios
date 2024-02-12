@@ -1,8 +1,11 @@
+"use client";
+import { Button } from "@/components/Button";
+import { GroupButton } from "@/components/GroupButton";
+import { sizeRect } from "@/data";
+import clsx from "clsx";
+
 import Image from "next/image";
-import { Button } from "../Button";
-import SectionContainer from "../SectionContainer";
-import { GroupButton } from "../GroupButton";
-import { productData } from "@/data";
+import Link from "next/link";
 
 type CardProp = {
   url: string;
@@ -11,18 +14,24 @@ type CardProp = {
   description: string;
   size: string;
   price: number;
+  className?: string;
 };
-
-const Card = ({
+export const Card = ({
   url,
   title,
   descriptionList,
   description,
   size,
   price,
+  className,
 }: CardProp) => {
   return (
-    <div className="p-5 bg-white flex flex-col rounded-[20px] w-[253px] h-[650px]">
+    <div
+      className={clsx(
+        "p-5 bg-white flex flex-col rounded-[20px] w-[253px] h-[650px]",
+        className
+      )}
+    >
       <Image
         className="rounded-[8px] w-full h-auto px-5 pb-5"
         src={url}
@@ -69,7 +78,10 @@ const Card = ({
         <span className="mb-[4px] text-[11px] tracking-[0.17px]">
           Площадь до:
         </span>
-        <GroupButton>{size}</GroupButton>
+
+        <GroupButton size="s" additionalText="м²" currentValue={size}>
+          {sizeRect}
+        </GroupButton>
       </div>
       <div className="mt-2 ml-3 inline-flex text-[20px] tracking-[0.25px] gap-[10px]">
         <span className="text-[#D02726] line-through">
@@ -84,46 +96,27 @@ const Card = ({
             Доставка и монтаж бесплатно!
           </span>
         </div>
-        <Button className="mt-2" variant="rounded" size="xm">
-          ПОДРОБНЕЕ
-        </Button>
-        <Button className="mt-2" variant="filled" size="xm">
-          КУПИТЬ
-        </Button>
+        <Link href={`/conditioner/${title.replace(/ /g, "-")}`}>
+          <Button
+            onClick={() => {}}
+            className="mt-2"
+            variant="rounded"
+            size="xm"
+          >
+            ПОДРОБНЕЕ
+          </Button>
+        </Link>
+        <a href="tel:+375291122333">
+          <Button
+            onClick={() => {}}
+            className="mt-2"
+            variant="filled"
+            size="xm"
+          >
+            КУПИТЬ
+          </Button>
+        </a>
       </div>
     </div>
-  );
-};
-
-export const Production = () => {
-  return (
-    <SectionContainer className="mb-[48px] mb-[100px]">
-      <h2 className="text-[44px] font-jost font-extrabold text-center">
-        Наша продукция
-      </h2>
-      <div className="flex flex-col items-center mb-[24px]">
-        <div className="flex rounded-l-lg">
-          <Button className="!rounded-none">СТАНДАРТ</Button>
-          <Button className="!rounded-none" size="l">
-            ИНВЕРТОР
-          </Button>
-          <Button className="!rounded-none">МУЛЬТИСПЛИТ</Button>
-        </div>
-      </div>
-      <p className="text-center leading-[24px] tracking-[0.44px] mb-[48px]">
-        Стандартный кондиционер выполняет все необходимые функции и работает по
-        принципу: включился/охладил/выключился. Во внутренний блок кондиционера
-        установлен датчик, он фиксирует, что температура в комнате нагрелась и
-        кондиционер включился. Стандартные модели более устойчивы к перепадам
-        напряжения эл.энергии. <br /> Купить кондиционер с установкой в Бресте и
-        области по самым низким ценам от компании FRIOS можно оставив заявку на
-        интересующую Вас модель или позвонив по телефону +375 29 999 11 11.
-      </p>
-      <div className="flex flex-row justify-center flex-wrap gap-[29px]">
-        {productData.map((el) => (
-          <Card key={el.title} {...el} />
-        ))}
-      </div>
-    </SectionContainer>
   );
 };

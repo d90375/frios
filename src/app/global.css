@@ -9,6 +9,7 @@
   --color-tertiary: #154987;
   --color-white: #ffffff;
   --color-disabled: #bdcfdb;
+  --color-text: #263238;
 }
 
 @layer utilities {

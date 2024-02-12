@@ -1,11 +1,11 @@
 export const headerNavLinks = [
   { href: "/", title: "Главная" },
-  { href: "/catalogue", title: "Каталог" },
-  { href: "/company", title: "О Компании" },
-  { href: "/delivery", title: "Доставка" },
-  { href: "/montage", title: "Монтаж" },
-  { href: "/service", title: "Обслуживание" },
-  { href: "/warranty", title: "Гарантия" },
+  { href: "/catalogue/", title: "Каталог" },
+  { href: "/company/", title: "О Компании" },
+  { href: "/delivery/", title: "Доставка" },
+  { href: "/montage/", title: "Монтаж" },
+  { href: "/service/", title: "Обслуживание" },
+  { href: "/warranty/", title: "Гарантия" },
 ] as const;
 
 export const heroData = [
@@ -58,7 +58,7 @@ export const heroData = [
   },
 ] as const;
 
-const sizeRect = ["20", "25", "35", "50"] as const;
+export const sizeRect = ["20", "25", "35", "50"];
 
 export const productData = [
   {
@@ -241,7 +241,7 @@ export const productData = [
       sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
     price: 1600,
   },
-] as const;
+];
 
 export const quizData = [
   {
@@ -291,4 +291,20 @@ export const quizData = [
     buttonText: "Получить",
     quiz: [{ text: "Введите номер телефона", url: null }],
   },
+  {
+    step: 6,
+    title:
+      "Спасибо, Ваша заявка принята! Мы свяжемся с вами в ближайшее время.",
+    buttonText: "Получить",
+    quiz: [{ text: "Введите номер телефона", url: null }],
+  },
 ] as const;
+
+export const dataMontage = [
+  "Доставка оборудования к заказчику",
+  "Установка внешнего блока кондиционера под окном на несущую стену",
+  "Прокладывание коммуникаций (5 метров входит в стандартный монтаж)",
+  "Подключение внутреннего блока",
+  "Вакуумирование трассы и запуск системы",
+  "Проверяете как работает оборудование и оплачиваете",
+];

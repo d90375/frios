@@ -9,7 +9,7 @@ export const Background = () => {
         width="0"
         height="0"
         sizes="100vw"
-        className="w-full h-auto"
+        className="w-full h-[660px] md:h-[1075px] object-cover"
       />
       <Image
         src="/assets/images/back-2.png"
@@ -17,7 +17,7 @@ export const Background = () => {
         width="0"
         height="0"
         sizes="100vw"
-        className="w-full h-auto"
+        className="w-full h-[700px] object-cover"
       />
     </div>
   );

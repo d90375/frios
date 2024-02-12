@@ -1,8 +1,18 @@
 "use client";
 import Image from "next/image";
 import Carousel from "nuka-carousel";
+import { useEffect, useState } from "react";
 
 export const CustomCarousel = () => {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const w = typeof window !== "undefined" ? window.innerWidth : 0;
+    if (w !== width) {
+      setWidth(w);
+    }
+  }, [width]);
+
   return (
     <Carousel
       defaultControlsConfig={{
@@ -38,7 +48,7 @@ export const CustomCarousel = () => {
           </svg>
         ),
       }}
-      slidesToShow={4}
+      slidesToShow={width < 800 ? 1 : 4}
       wrapAround
       cellSpacing={10}
     >
