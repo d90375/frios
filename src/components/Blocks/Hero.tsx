@@ -25,8 +25,8 @@ const Card = ({ icon, title, description }: CardProps) => {
 
 export const Hero = () => {
   return (
-    <SectionContainer className="pt-[8px] md:pt-[80px] flex items-center flex-col">
-      <h2 className="text-[32px] leading-[32px] md:text-[48px] md:leading-[56px] font-bold  md:uppercase text-center font-jost text-white">
+    <SectionContainer className="pt-[8px] md:pt-[60px] flex items-center flex-col">
+      <h2 className="text-[32px] leading-[32px] md:text-[48px] md:leading-[56px] font-semibold  md:uppercase text-center font-jost text-white">
         Купи кондиционер - подари себе
         <br /> тишину и комфорт
       </h2>
@@ -35,7 +35,7 @@ export const Hero = () => {
           более 200 моделей
         </p>
       </div>
-      <div className="flex flex-wrap justify-center mt-[180px] md:mt-[415px] gap-[29px]">
+      <div className="flex flex-wrap justify-center mt-[180px] md:mt-[260px] lg:mt-[360px] min-[1440px]:mt-[400px] min-[1600px]:mt-[450px] gap-[29px]">
         {heroData.map((prop) => (
           <Card {...prop} key={prop.title} />
         ))}

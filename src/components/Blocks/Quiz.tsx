@@ -85,7 +85,7 @@ export const Calculator = () => {
             <Fragment key={title}>
               <h2
                 className={clsx(
-                  "font-jost max-w-[680px] px-2 text-center text-[32px] leading-[32px] md:text-[44px] mb-[32px] md:mb-[40px] font-extrabold md:leading-[48px]",
+                  "font-jost max-w-[680px] px-2 text-center text-[32px] leading-[32px] md:text-[44px] mb-[32px] md:mb-[40px] font-semibold md:leading-[48px]",
                   currentStep === 6 && "mt-0 md:mt-[250px]"
                 )}
               >

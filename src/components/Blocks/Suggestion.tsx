@@ -21,15 +21,15 @@ const Block = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="md:text-[32px] text-center md:text-start text-[24px] leading-[26px] font-jost font-extrabold md:leading-[48px]">
+      <span className="md:text-[32px] text-center md:text-start text-[24px] leading-[26px] font-jost font-semibold md:leading-[48px]">
         Стандартный монтаж включает:
       </span>
 
-      <div className="flex flex-col md:flex-row md:flex-wrap items-center md:items-start font-jost gap-4 md:gap-[30px]">
+      <div className="flex flex-col md:flex-row md:flex-wrap items-center md:items-start font-jost font-semibold gap-4 md:gap-[30px]">
         {dataMontage.map((el, index) => (
           <div className="flex flex-col items-center md:flex-row gap-4 md:gap-[24px]">
             <div className="flex items-center justify-center w-[72px] h-[72px] shadow-custom rounded-[20px] bg-custom-gradient">
-              <span className="text-[#45B2EA]  font-jost text-[44px] font-bold">
+              <span className="text-[#45B2EA]  font-jost font-semibold text-[44px]">
                 {index + 1}
               </span>
             </div>
@@ -55,7 +55,7 @@ export const Suggestion = () => {
         className="w-full h-full lg:h-[800px]  -z-10 inset-0 absolute object-cover"
       />
       <SectionContainer className="pb-[36px] relative">
-        <h2 className="text-white font-jost pt-[50px] pb-[53px] text-center text-[32px] md:text-[44px] font-extrabold leading-[32px] md:leading-[48px]">
+        <h2 className="text-white font-jost pt-[50px] pb-[53px] text-center text-[32px] md:text-[44px] font-semibold leading-[32px] md:leading-[48px]">
           Установка кондиционера — <br /> ответственный процесс
         </h2>
         <div className="flex flex-wrap flex-row">

@@ -29,7 +29,7 @@ export const GroupButton = ({
       {children.map((el) => (
         <button
           className={clsx(
-            "duration-75 w-full",
+            "duration-75",
             size === "s"
               ? "px-[11px] py-[6px] text-[11px] font-roboto font-medium leading-[12px] tracking-[0.58px]"
               : "px-10 py-4 leading-5 font-roboto-cond font-bold",

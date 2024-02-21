@@ -106,7 +106,7 @@ export const Card = ({
             ПОДРОБНЕЕ
           </Button>
         </Link>
-        <a href="tel:+375291122333">
+        <a href="tel:+375298983222">
           <Button
             onClick={() => {}}
             className="mt-2"

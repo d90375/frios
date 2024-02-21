@@ -41,9 +41,11 @@ const NavBar = ({
 
 const CallMeButton = () => {
   return (
-    <Button className="hidden lg:block" size="m" variant="filled">
-      <a href="tel:+375 29 111 11 11">ПОЗВОНИТЕ МНЕ</a>
-    </Button>
+    <a href="tel:+375298983222">
+      <Button className="hidden lg:block" size="m" variant="filled">
+        ПОЗВОНИТЕ МНЕ
+      </Button>
+    </a>
   );
 };
 

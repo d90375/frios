@@ -1,4 +1,5 @@
 import { Roboto, Roboto_Condensed, Nunito_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./global.css";
 import { Metadata } from "next";
 import { Header } from "@/components/Blocks/Header";
@@ -8,15 +9,20 @@ import { siteMetadata } from "@/utils/siteMetadata";
 
 import { Background } from "@/components/Background";
 
+const jost = localFont({
+  src: [
+    {
+      path: "../../public/font/FuturaNewDemi.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-jost",
+});
 const roboto = Roboto({
   subsets: ["cyrillic"],
   weight: ["400", "500", "700"],
   variable: "--font-roboto",
-});
-const jost = Nunito_Sans({
-  subsets: ["cyrillic"],
-  weight: ["700", "800"],
-  variable: "--font-jost",
 });
 const robotoCond = Roboto_Condensed({
   subsets: ["cyrillic"],
@@ -112,9 +118,11 @@ export default function RootLayout({
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-[#F2F9FD] text-text antialiased">
         <div className="flex h-screen flex-col justify-between font-roboto">
-          <Background />
-          <Header />
-          {children}
+          <div>
+            <Background />
+            <Header />
+            {children}
+          </div>
           <Footer />
         </div>
       </body>

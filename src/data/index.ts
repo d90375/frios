@@ -1,11 +1,11 @@
 export const headerNavLinks = [
   { href: "/", title: "Главная" },
   { href: "/catalogue/", title: "Каталог" },
-  { href: "/company/", title: "О Компании" },
   { href: "/delivery/", title: "Доставка" },
   { href: "/montage/", title: "Монтаж" },
-  { href: "/service/", title: "Обслуживание" },
+  { href: "/service/", title: "Услуги" },
   { href: "/warranty/", title: "Гарантия" },
+  { href: "/about-us/", title: "О Нас" },
 ] as const;
 
 export const heroData = [

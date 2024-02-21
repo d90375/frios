@@ -5,7 +5,7 @@ import SectionContainer from "../SectionContainer";
 export const Examples = () => {
   return (
     <SectionContainer className="mt-[80px] mb-[60px] md:mb-[100px]">
-      <p className="text-[24px] md:text-[32px] text-center font-jost font-bold mb-[26px] md:mb-[40px] leading-[24px] md:leading-[48px]">
+      <p className="text-[24px] md:text-[32px] text-center font-jost font-semibold mb-[26px] md:mb-[40px] leading-[24px] md:leading-[48px]">
         Примеры наших работ
       </p>
       <CustomCarousel />
