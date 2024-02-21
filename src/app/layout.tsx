@@ -1,10 +1,9 @@
-import { Roboto, Roboto_Condensed, Nunito_Sans } from "next/font/google";
+import { Roboto, Roboto_Condensed } from "next/font/google";
 import localFont from "next/font/local";
 import "./global.css";
 import { Metadata } from "next";
 import { Header } from "@/components/Blocks/Header";
 import { Footer } from "@/components/Blocks/Footer";
-import SectionContainer from "@/components/SectionContainer";
 import { siteMetadata } from "@/utils/siteMetadata";
 
 import { Background } from "@/components/Background";
