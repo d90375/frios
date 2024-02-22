@@ -1,7 +1,30 @@
-import SectionContainer from "@/components/SectionContainer";
 import { productData } from "@/data";
 
 import Image from "next/image";
+
+interface Characteristics {
+  children: { header: string; body: { title: string; desc: string }[] }[];
+}
+
+const Characteristics = ({ children }: Characteristics) => {
+  return (
+    <div className="flex flex-col">
+      {children.map(({ header, body }) => (
+        <div key={header}>
+          <p className="font-lg font-bold text-center mb-4">{header}</p>
+          <div className="flex flex-col">
+            {body.map(({ title, desc }) => (
+              <div key={title} className="inline-flex gap-2 ml-2">
+                <p className="font-medium w-[200px] md:w-[700px]">{title}</p>
+                <span>{desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export const generateStaticParams = async () => {
   const paths = productData.map((p) => ({
@@ -37,55 +60,133 @@ export default async function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <SectionContainer className="p-[30px] h-full my-[30px] bg-white rounded-[20px]">
-      <Image
-        src={product.url}
-        alt={product.title}
-        width="0"
-        height="0"
-        sizes="100vw"
-        className="w-full h-[300px] object-contain"
-      />
-
-      <h2 className="text-[44px] uppercase font-sans font-bold leading-[48px] py-[30px]">
+    <div className="px-5 md:px-[20%] bg-white rounded-lg pt-10 pb-20 flex flex-col items-start gap-5">
+      <h1 className="text-[24px] text-center md:text-start self-center leading-[28px] mb-10 md:leading-[44px] md:text-[44px] font-jost font-semibold">
         {product.title}
-      </h2>
-      <div className="shadow-[0px_2px_8px_0px_rgba(8,35,48,0.24)] flex items-center justify-between py-4 px-[24px] rounded-[10px]">
-        <h6 className="text-[18px] font-medium leading-[28px] tracking-[0.15]">
-          Техническая спецификация
-        </h6>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_6272_1562)">
-            <path
-              d="M12 0C5.4 0 0 5.4 0 12C0 18.6 5.4 24 12 24C18.6 24 24 18.6 24 12C24 5.4 18.6 0 12 0ZM18.7 9.2L11.4 17.4C11.1 17.7 10.7 17.9 10.3 17.9C9.9 17.9 9.5 17.7 9.2 17.5L5.4 13.7C4.8 13.1 4.8 12.2 5.4 11.6C6 11 6.9 11 7.5 11.5L10.2 14.2L16.5 7.1C17 6.6 17.9 6.5 18.6 7C19.2 7.6 19.2 8.5 18.7 9.2Z"
-              fill="black"
-            />
-            <ellipse cx="12" cy="12" rx="12" ry="12" fill="#45B2EA" />
-            <path
-              d="M10.5 7.5L15 12L10.5 16.5"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_6272_1562">
-              <rect width="24" height="24" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
+      </h1>
+      <div className="flex flex-col md:flex-row gap-4">
+        <Image
+          src={product.url}
+          alt={product.title}
+          width="0"
+          height="0"
+          sizes="100vw"
+          className="w-full h-[300px] object-contain"
+        />
+
+        <div className="flex flex-col">
+          <h3 className="text-gray-500 border font-medium rounded mb-2 w-fit py-0.5 px-3 border-gray-300">
+            Описание
+          </h3>
+          <div>
+            <p className="mb-2 font-medium ">
+              Безупречность линий в сочетании с уникальными технологиями
+              позволяет по-новому взглянуть на традиционные сплит-системы. Тихая
+              работа, А класс энергоэффективности, 4 скорости потока воздуха и I
+              FEEL климат контроль подарят Вам истинное наслаждение от
+              использования новой сплит-системы Olympio.
+            </p>
+            <ul className="list-disc ml-6 text-sm mb-6">
+              <li>А класс энергоэффективности</li>
+              <li>Тихий режим работы SILENCE - 24dB(A)</li>
+              <li>Функция ≪Горячий старт≫</li>
+              <li>Режим максимальной производительности (STRONG)</li>
+              <li>
+                Воздушный HD-фильтр высокой плотности – в 3 раза более
+                эффективный
+              </li>
+              <li>
+                Функция самоочистки внутреннего блока (предотвращение появления
+                плесени и неприятного запаха)
+              </li>
+              <li>
+                Скрытый LED-дисплей, появляется на панели при включении
+                кондиционера
+              </li>
+              <li>
+                Расширенная функция TIMER 24 на включение и выключение
+                кондиционера
+              </li>
+              <li>Фильтр Vitamin C</li>
+              <li>I FEEL климат контроль</li>
+              <li>Бесшумный режим ≪SILENCE≫</li>
+              <li>Режим максимальной производительности STRONG</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      {/* <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      /> */}
-    </SectionContainer>
+      <div>
+        <h3 className="text-gray-500 font-medium mb-2 border rounded w-fit py-0.5 px-3 border-gray-300">
+          Характеристики
+        </h3>
+        <Characteristics>
+          {[
+            {
+              header: "Основные",
+              body: [
+                { title: "Бренд", desc: "Ballu" },
+                { title: "Серия", desc: "Olympio" },
+                { title: "Хладагент", desc: "Ballu" },
+                { title: "Мин. поддерживаемая температура", desc: "-7 °С" },
+                {
+                  title: "Макс. рабочая температура воздуха для внешнего блока",
+                  desc: "43 °С",
+                },
+                {
+                  title: "Мин. рабочая температура воздуха для внешнего блока",
+                  desc: "-7 °С",
+                },
+                {
+                  title: "Цвет корпуса внешнего блока",
+                  desc: "Белый",
+                },
+                {
+                  title: "Цвет корпуса внутр. блока",
+                  desc: "Белый",
+                },
+                {
+                  title: "Гарантийный срок",
+                  desc: "3 года",
+                },
+                {
+                  title: "Страна производства",
+                  desc: "КНР",
+                },
+              ],
+            },
+            {
+              header: "Потребительские",
+              body: [
+                { title: "Эффективен для помещ. площадью до", desc: "21 м2" },
+                { title: "Макс. уровень шума внешнего блока", desc: "50 дБ" },
+                { title: "Уровень шума внутр. блока", desc: "24 дБ" },
+              ],
+            },
+            {
+              header: "Производительность",
+              body: [
+                {
+                  title: "Макс. производительность обогрева",
+                  desc: "2.2 кВт",
+                },
+                {
+                  title: "Макс. производительность охлаждения",
+                  desc: "2.1 кВт",
+                },
+                { title: "Макс. расход воздуха", desc: "420 м3/час" },
+                {
+                  title: "Номинальная производительность обогрева",
+                  desc: "2.2 кВт",
+                },
+                {
+                  title: "Номинальная производительность охлаждения",
+                  desc: "2.1 кВт",
+                },
+              ],
+            },
+          ]}
+        </Characteristics>
+      </div>
+    </div>
   );
 }

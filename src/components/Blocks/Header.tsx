@@ -11,10 +11,10 @@ import clsx from "clsx";
 
 const NavBar = ({
   className,
-  btnClassName,
+  aside,
 }: {
   className?: string;
-  btnClassName?: string;
+  aside?: boolean;
 }) => {
   const pathname = usePathname();
   return (
@@ -27,9 +27,9 @@ const NavBar = ({
       {headerNavLinks.map((link) => (
         <Link key={link.title} href={link.href}>
           <Button
-            variant="link"
+            variant={aside ? "gray-link" : "link"}
             active={link.href === pathname}
-            className={clsx("uppercase", btnClassName)}
+            className={clsx("uppercase")}
           >
             {link.title}
           </Button>
@@ -55,10 +55,7 @@ const Aside = () => {
       <div className="flex ml-2 flex-col gap-4 pb-4">
         <Info socialMedia="s" color="black" hasMail hasTimeWork size="m" />
       </div>
-      <NavBar
-        btnClassName="!text-text"
-        className="flex-col !items-start !gap-2 !p-0"
-      />
+      <NavBar aside className="flex-col !items-start !gap-2 !p-0" />
     </aside>
   );
 };

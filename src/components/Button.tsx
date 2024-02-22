@@ -5,7 +5,7 @@ type Props = {
   children: JSX.Element | string;
   active?: boolean;
   className?: string;
-  variant?: "link" | "filled" | "rounded";
+  variant?: "link" | "filled" | "rounded" | "gray-link";
   size?: "s" | "xm" | "m" | "l";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   icon?: JSX.Element;
@@ -33,10 +33,16 @@ export const Button = ({
         size === "l" && "px-10 py-4 rounded-[10px]",
         variant === "link" &&
           active &&
-          "text-quaternary bg-transparent hover:text-primary hover:bg-white",
+          "text-primary hover:text-quaternary bg-white",
         variant === "link" &&
           !active &&
-          "text-white bg-transparent hover:text-quaternary hover:bg-white",
+          "text-white bg-transparent hover:text-quaternary",
+        variant === "gray-link" &&
+          active &&
+          "text-primary hover:text-quaternary bg-white",
+        variant === "gray-link" &&
+          !active &&
+          "text-text bg-transparent hover:text-quaternary",
         variant === "filled" && "bg-primary text-white hover:bg-quaternary",
         variant === "rounded" &&
           "border !py-2 border-[#BDCFDB] bg-white text-text hover:bg-gray-100",

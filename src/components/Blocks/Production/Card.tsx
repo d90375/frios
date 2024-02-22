@@ -28,21 +28,25 @@ export const Card = ({
   return (
     <div
       className={clsx(
-        "p-5 bg-white flex flex-col rounded-[20px] w-[253px] h-[650px]",
+        "p-5 bg-white flex flex-col rounded-[20px] w-[253px] h-[700px]",
         className
       )}
     >
-      <Image
-        className="rounded-[8px] w-full h-auto px-5 pb-5"
-        src={url}
-        alt={title}
-        width="0"
-        height="0"
-        sizes="100vw"
-      />
-      <h4 className="text-[20px] font-bold leading-tight tracing-[0.25px]">
-        {title}
-      </h4>
+      <Link href={`/conditioner/${title.replace(/ /g, "-")}`}>
+        <Image
+          className="rounded-[8px] w-full h-auto  mb-5 border border-transparent hover:border-gray-200"
+          src={url}
+          alt={title}
+          width="0"
+          height="0"
+          sizes="100vw"
+        />
+      </Link>
+      <Link href={`/conditioner/${title.replace(/ /g, "-")}`}>
+        <h4 className="text-[20px] font-bold leading-tight tracing-[0.25px]">
+          {title}
+        </h4>
+      </Link>
       <ul className="text-[#333333] flex mt-1 flex-col text-sm">
         {descriptionList.map((el) => (
           <div key={el} className="inline-flex items-center gap-1">
@@ -87,7 +91,9 @@ export const Card = ({
         <span className="text-[#D02726] line-through">
           {(price / 100) * 30 + price} Br
         </span>
-        <h4 className="font-bold">{price} Br</h4>
+        <Link href={`/conditioner/${title.replace(/ /g, "-")}`}>
+          <h4 className="font-bold">{price} Br</h4>
+        </Link>
       </div>
 
       <div className="mt-auto">
