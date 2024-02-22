@@ -19,7 +19,7 @@ export const Background = () => {
             "w-full object-cover",
             pathname !== "/" && "h-[160px] object-center md:object-top",
             pathname === "/" &&
-              "h-[660px] md:h-[1075px] min-[1920px]:h-[1200px] min-[2230px]:object-bottom object-center"
+              "h-[580px] md:h-[1075px] min-[1920px]:h-[1200px] min-[2230px]:object-bottom object-center"
           )}
         />
       </div>

@@ -183,7 +183,7 @@ export const Info = ({
             </svg>
           </div>
           <span className={clsx(size === "m" ? "text-base" : "text-sm")}>
-            <a href="mailto:brestfrion@gmail.com">brestfrion@gmail.com</a>
+            <a href="mailto:belfrios@mail.ru">belfrios@mail.ru</a>
           </span>
         </div>
       )}
