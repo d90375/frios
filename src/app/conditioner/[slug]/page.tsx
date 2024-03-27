@@ -1,8 +1,6 @@
 import { getGoogleSheetsData } from "@/gsheets";
 import Image from "next/image";
 
-export const revalidate = 1;
-
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = decodeURI(params.slug);
 
