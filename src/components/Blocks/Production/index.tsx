@@ -2,15 +2,62 @@
 import { productData } from "@/data";
 import { Card } from "./Card";
 import { GroupButton } from "@/components/GroupButton";
-import { useState } from "react";
+// import { useState } from "react";
 import clsx from "clsx";
+import { getGoogleSheetsData } from "@/gsheets";
 
 const defaultValue = "Сплит-системы on/off";
 
 type Tab = "СТАНДАРТ" | "ИНВЕНТОР" | "МУЛЬТИСПЛИТ";
 
-export const Production = ({ uniquePage }: { uniquePage?: boolean }) => {
-  const [tab, setTab] = useState(defaultValue);
+type Product = {
+  id: string | undefined | null;
+  imageUrl: string | undefined | null;
+  model: string | undefined | null;
+  square: string | undefined | null;
+  type: string | undefined | null;
+  installType: string | undefined | null;
+  mode: string | undefined | null;
+  typeMode: string | undefined | null;
+  freon: string | undefined | null;
+  workingRangeHeat: string | undefined | null;
+  workingRangeCold: string | undefined | null;
+  color: string | undefined | null;
+  magistralLength: string | undefined | null;
+  heightStep: string | undefined | null;
+  filter: string | undefined | null;
+  management: string | undefined | null;
+  hasDisplay: string | undefined | null;
+  hasCoolerControl: string | undefined | null;
+  hasSpeedCoolerControl: string | undefined | null;
+  hasDehumidificationAir: string | undefined | null;
+  hasAutoClear: string | undefined | null;
+  hasAnalytic: string | undefined | null;
+  hasAntiIce: string | undefined | null;
+  hasIndication: string | undefined | null;
+  powerForHeat: string | undefined | null;
+  powerForCold: string | undefined | null;
+  coldPower: string | undefined | null;
+  heatPower: string | undefined | null;
+  squarePower: string | undefined | null;
+  airRate: string | undefined | null;
+  noiseBlockInside: string | undefined | null;
+  noiseBlockOutside: string | undefined | null;
+  sizeBlockInside: string | undefined | null;
+  weightBlockInside: string | undefined | null;
+  weightBlockOutside: string | undefined | null;
+  price: string | undefined | null;
+};
+
+export const Production = ({
+  uniquePage,
+  productData,
+}: {
+  uniquePage?: boolean;
+  productData: Product[] | undefined | null;
+}) => {
+  // const [tab, setTab] = useState(defaultValue);
+
   return (
     <>
       <div className={clsx("mb-[32px] md:mb-[48px]", uniquePage && "!mb-4")}>
@@ -26,10 +73,10 @@ export const Production = ({ uniquePage }: { uniquePage?: boolean }) => {
       </div>
       <GroupButton
         className="mb-[24px] !w-full divide-y divide-x-0 md:!divide-x md:!divide-y-0 md:!w-auto !flex-col md:!flex-row"
-        currentValue={tab}
-        onClick={(value) => {
-          setTab(value as unknown as Tab);
-        }}
+        currentValue={defaultValue}
+        // onClick={(value) => {
+        //   setTab(value as unknown as Tab);
+        // }}
       >
         {[
           "Сплит-системы on/off",
@@ -39,7 +86,7 @@ export const Production = ({ uniquePage }: { uniquePage?: boolean }) => {
       </GroupButton>
       {!uniquePage && (
         <p className="text-center leading-[24px] tracking-[0.44px] mb-[32px] md:mb-[48px]">
-          Стандартный кондиционер выполняет все необходимые функции и работает
+          Стандартная сплит-система выполняет все необходимые функции и работает
           по принципу: включился/охладил/выключился. Во внутренний блок
           кондиционера установлен датчик, он фиксирует, что температура в
           комнате нагрелась и кондиционер включился. Стандартные модели более
@@ -49,12 +96,24 @@ export const Production = ({ uniquePage }: { uniquePage?: boolean }) => {
           телефону +375 29 999 11 11.
         </p>
       )}
+
       <div className="flex flex-row justify-center flex-wrap gap-[29px]">
-        {productData.map((el, index) => (
+        {productData?.map((card) => (
           <Card
-            className={clsx("", index >= 8 && "hidden md:block")}
-            key={`${el.title} ${index}`}
-            {...el}
+            id={card.id}
+            url={card.imageUrl}
+            key={card.id}
+            title={card.model}
+            square={card.square}
+            size={card.sizeBlockInside}
+            descriptionList={[
+              card.hasCoolerControl ? "Осушение воздуха" : "",
+              card.filter ? "Биофильтр" : "",
+              card.hasDisplay ? "Дисплей" : "",
+              card.hasAnalytic ? "Авторестарт" : "",
+              card.hasAutoClear ? "Самодиагностика" : "",
+            ]}
+            price={card.price}
           />
         ))}
       </div>

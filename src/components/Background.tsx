@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export const Background = () => {
   const pathname = usePathname();
-  console.log("pathname", pathname);
+
   return (
     <div className="-z-10 inset-0 absolute">
       <div className="relative">

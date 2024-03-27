@@ -82,7 +82,7 @@ export const Suggestion = () => {
               <SuccessSVG />
               <p className="text-[20px] font-bold leading-normal mb-5">
                 Мы осуществляем установку сплит-систем, приобретенных в нашей
-                компании совершенно бесплатно
+                компании со скидкой 20%
               </p>
             </div>
             <div className="flex items-start gap-[10px]">
@@ -91,9 +91,9 @@ export const Suggestion = () => {
                 Так же можем установить ваш кондиционер
                 <br /> по Акции всего за{" "}
                 <span className="line-through text-[#FF8D8D]">
-                  2080 Br
+                  600 бел. рублей
                 </span>{" "}
-                1600 Br рублей.
+                350 бел. рублей
               </p>
             </div>
             <p className="text-base text-center lg:text-start leading-[24px] tracking-[0.44px]">

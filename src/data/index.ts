@@ -14,7 +14,7 @@ export const heroData = [
     <path d="M6.35266 17.0548L13.0248 15.7026C13.4869 15.6089 13.8877 15.324 14.1279 14.9183L18.5665 7.42201C19.2119 6.33199 20.7893 6.33199 21.4347 7.42201L25.8733 14.9183C26.1135 15.324 26.5143 15.6089 26.9764 15.7026L33.6485 17.0548C34.9464 17.3178 35.4339 18.9164 34.5038 19.8589L28.9536 25.4831C28.5659 25.8759 28.3979 26.4351 28.5047 26.9765L29.7551 33.3115C30.024 34.6743 28.6058 35.7488 27.3667 35.121L20.7539 31.7705C20.2803 31.5306 19.7208 31.5306 19.2473 31.7705L12.6345 35.121C11.3954 35.7488 9.97714 34.6743 10.2461 33.3115L11.4964 26.9765C11.6033 26.4351 11.4352 25.8759 11.0476 25.4831L5.49742 19.8589C4.56726 18.9164 5.05481 17.3178 6.35266 17.0548Z" fill="#45B2EA"/>
     </svg>`,
     title: "Гарантия 3 года",
-    description: "Гарантия на кондиционеры и установку 3 года",
+    description: "Гарантия на кондиционеры и установку от 3ех лет",
   },
   {
     icon: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,190 +58,7 @@ export const heroData = [
   },
 ] as const;
 
-export const sizeRect = ["20", "25", "35", "50"];
-
-export const productData = [
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-  {
-    url: "/assets/images/product-example.png",
-    title: "SAMSUNG LG MITSUBISHI GR-9999",
-    descriptionList: [
-      "Ионизатор",
-      "Биофильтр",
-      "Фильтр с ионами серебра",
-      "Авторестарт",
-      "Самодиагностика",
-    ],
-    description: "Габариты (ШхВхГ): 75x25x19.8 см",
-    size:
-      sizeRect[Math.floor(Math.random() * sizeRect.length)] ?? ("20" as const),
-    price: 1600,
-  },
-];
+export const squareRect = ["20", "25", "35", "50"];
 
 export const quizData = [
   {
@@ -303,7 +120,7 @@ export const quizData = [
 export const dataMontage = [
   "Доставка оборудования к заказчику",
   "Установка внешнего блока кондиционера под окном на несущую стену",
-  "Прокладывание коммуникаций (5 метров входит в стандартный монтаж)",
+  "Прокладывание коммуникаций (3 метра входит в стандартный монтаж)",
   "Подключение внутреннего блока",
   "Вакуумирование трассы и запуск системы",
   "Проверяете как работает оборудование и оплачиваете",

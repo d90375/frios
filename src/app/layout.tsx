@@ -7,6 +7,7 @@ import { Footer } from "@/components/Blocks/Footer";
 import { siteMetadata } from "@/utils/siteMetadata";
 
 import { Background } from "@/components/Background";
+import { getGoogleSheetsData } from "@/gsheets";
 
 const jost = localFont({
   src: [
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

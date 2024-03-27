@@ -12,7 +12,7 @@ const ContentSecurityPolicy = `
   connect-src *;
   font-src 'self';
   frame-src giscus.app
-`
+`;
 
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
@@ -57,6 +57,22 @@ module.exports = withBundleAnalyzer({
     dirs: ["."],
   },
   // output: "export",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.googleusercontent.com",
+        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "photos.app.goo.gl",
+        port: "",
+        pathname: "**",
+      },
+    ],
+  },
   poweredByHeader: false,
   trailingSlash: true,
   basePath: "",
@@ -78,4 +94,3 @@ module.exports = withBundleAnalyzer({
     return config;
   },
 });
-
