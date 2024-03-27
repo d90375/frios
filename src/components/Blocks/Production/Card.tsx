@@ -3,7 +3,6 @@ import { Button } from "@/components/Button";
 import { GroupButton } from "@/components/GroupButton";
 import { squareRect } from "@/data";
 import clsx from "clsx";
-import { url } from "inspector";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +27,6 @@ export const Card = ({
   square,
   price,
   className,
-  state,
 }: CardProp) => {
   return (
     <div

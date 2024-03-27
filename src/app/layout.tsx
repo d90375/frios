@@ -7,7 +7,6 @@ import { Footer } from "@/components/Blocks/Footer";
 import { siteMetadata } from "@/utils/siteMetadata";
 
 import { Background } from "@/components/Background";
-import { getGoogleSheetsData } from "@/gsheets";
 
 const jost = localFont({
   src: [

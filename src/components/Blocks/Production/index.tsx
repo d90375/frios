@@ -1,14 +1,13 @@
 "use client";
-import { productData } from "@/data";
+
 import { Card } from "./Card";
 import { GroupButton } from "@/components/GroupButton";
 // import { useState } from "react";
 import clsx from "clsx";
-import { getGoogleSheetsData } from "@/gsheets";
 
 const defaultValue = "Сплит-системы on/off";
 
-type Tab = "СТАНДАРТ" | "ИНВЕНТОР" | "МУЛЬТИСПЛИТ";
+// type Tab = "СТАНДАРТ" | "ИНВЕНТОР" | "МУЛЬТИСПЛИТ";
 
 type Product = {
   id: string | undefined | null;
