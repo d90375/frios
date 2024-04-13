@@ -1,8 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
-
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
@@ -52,7 +47,7 @@ const securityHeaders = [
   },
 ];
 
-module.exports = withBundleAnalyzer({
+module.exports = {
   eslint: {
     dirs: ["."],
   },
@@ -93,4 +88,4 @@ module.exports = withBundleAnalyzer({
 
     return config;
   },
-});
+};
