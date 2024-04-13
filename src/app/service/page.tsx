@@ -1,4 +1,9 @@
 import SectionContainer from "@/components/SectionContainer";
+import { genPageMetadata } from "../seo";
+
+export const metadata = genPageMetadata({
+  title: "установка кондиционеров Брест Frios. обслуживание",
+});
 
 export default function Page() {
   return (
@@ -11,9 +16,9 @@ export default function Page() {
       </div>
 
       <p className="text-base ml-3 mr-6 md:mr-12">
-        Снять кондиционера чаще всего нужен при смене жилья или ремонте и наша
-        фирма выполнит данный спектр услуг быстро и достаточно аккуратно без
-        повреждений самого климатического устройства.
+        Демонтаж кондиционера чаще всего нужен при смене жилья или ремонте и
+        наша фирма выполнит данный спектр услуг быстро и достаточно аккуратно
+        без повреждений самого климатического устройства.
         <br /> Для того чтобы выполнить правильный демонтаж кондиционера, наши
         специалисты первым делом перекачивают фреон во внешние блоки. Данный
         процесс означает включение климатического оборудования в режиме
@@ -39,8 +44,6 @@ export default function Page() {
         <div className="h-[2px] w-full bg-primary" />
       </div>
 
-      <p className="text-lg md:text-xl">пусто</p>
-
       <div className="w-fit mt-5 mb-5 md:mb-10">
         <h1 className="text-[28px] text-center md:text-start leading-[28px] mb-2 md:leading-[44px] md:text-[44px] font-jost font-semibold">
           Услуги - сервисное обслуживание
@@ -48,16 +51,12 @@ export default function Page() {
         <div className="h-[2px] w-full bg-primary" />
       </div>
 
-      <p className="text-lg md:text-xl">пусто</p>
-
       <div className="w-fit mt-5 mb-5 md:mb-10">
         <h1 className="text-[28px] text-center md:text-start leading-[28px] mb-2 md:leading-[44px] md:text-[44px] font-jost font-semibold">
           Услуги - установка кондиционеров
         </h1>
         <div className="h-[2px] w-full bg-primary" />
       </div>
-
-      <p className="text-lg md:text-xl">пусто</p>
     </SectionContainer>
   );
 }

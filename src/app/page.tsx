@@ -5,6 +5,11 @@ import { Production } from "@/components/Blocks/Production";
 import { Suggestion } from "@/components/Blocks/Suggestion";
 import SectionContainer from "@/components/SectionContainer";
 import { getGoogleSheetsData } from "@/gsheets";
+import { genPageMetadata } from "./seo";
+
+export const metadata = genPageMetadata({
+  title: "установка кондиционеров Брест Frios. лучшая цена",
+});
 
 export default async function MainPage() {
   const data: string[][] | null | undefined = await getGoogleSheetsData();
@@ -46,6 +51,7 @@ export default async function MainPage() {
     noiseBlockOutside: el[33],
     weightBlockInside: el[34],
     weightBlockOutside: el[35],
+    category: el[36] as "инв" | "мульти" | "онофф" | undefined | null,
   }));
 
   return (

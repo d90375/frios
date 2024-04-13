@@ -6,6 +6,7 @@ import clsx from "clsx";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type CardProp = {
   id?: string | null;
@@ -28,6 +29,14 @@ export const Card = ({
   price,
   className,
 }: CardProp) => {
+  const newRect = squareRect.map((el, index) => ({ value: index, label: el }));
+  const currentRect = newRect.find((rect) => rect.label === square)!;
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
+  params.set("slug", title?.replace(" ", "-") ?? "");
+
+  const link = `/conditioner/${id}?${params}`;
+
   return (
     <div
       className={clsx(
@@ -37,7 +46,7 @@ export const Card = ({
     >
       <Link
         className="flex items-center justify-center min-h-[200px]"
-        href={`/conditioner/${id}`}
+        href={link}
       >
         <Image
           className="rounded-[8px] w-[200px] max-h-[200px] h-auto mb-5 border border-transparent hover:border-gray-200"
@@ -47,7 +56,7 @@ export const Card = ({
           width="200"
         />
       </Link>
-      <Link className="mb-auto" href={`/conditioner/${id}`}>
+      <Link className="mb-auto" href={link}>
         <h4 className="text-[20px] line-clamp-4 font-bold leading-tight tracing-[0.25px]">
           {title}
         </h4>
@@ -101,10 +110,12 @@ export const Card = ({
           size="s"
           additionalText="м²"
           currentValue={
-            square && squareRect.some((rect) => rect === square) ? square : "20"
+            square && squareRect.some((rect) => rect === square)
+              ? currentRect
+              : { value: 1, label: "20" }
           }
         >
-          {squareRect}
+          {newRect}
         </GroupButton>
       </div>
       {price && (
@@ -113,7 +124,7 @@ export const Card = ({
             {(+price / 100) * 30 + +price} Br
           </span>
 
-          <Link href={`/conditioner/${id}`}>
+          <Link href={link}>
             <h4 className="font-bold">{price} Br</h4>
           </Link>
         </div>
@@ -125,7 +136,7 @@ export const Card = ({
             Доставка и монтаж бесплатно!
           </span>
         </div>
-        <Link href={`/conditioner/${id}`}>
+        <Link href={link}>
           <Button
             onClick={() => {}}
             className="mt-2"

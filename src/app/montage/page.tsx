@@ -1,4 +1,9 @@
 import SectionContainer from "@/components/SectionContainer";
+import { genPageMetadata } from "../seo";
+
+export const metadata = genPageMetadata({
+  title: "установка кондиционеров Брест Frios. монтаж и установка",
+});
 
 export default function Page() {
   return (

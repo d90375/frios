@@ -31,6 +31,7 @@ export function genPageMetadata({
       card: "summary_large_image",
       images: image ? [image] : [siteMetadata.socialBanner],
     },
+    keywords: "установка, кондиционеры, брест, лучшая цена",
     ...rest,
   };
 }

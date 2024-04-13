@@ -1,11 +1,33 @@
+import { genPageMetadata } from "@/app/seo";
 import { getGoogleSheetsData } from "@/gsheets";
+import { siteMetadata } from "@/utils/siteMetadata";
+import { Metadata } from "next";
 import Image from "next/image";
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const slug = decodeURI(params.slug);
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { slug: string };
+}): Promise<Metadata> {
+  const slug = decodeURI(searchParams.slug);
+
+  return genPageMetadata({
+    title: `установка кондиционера ${slug}`,
+    description: `${siteMetadata.title} ${slug} установка и монтаж кондиционеров брест`,
+    alternates: {
+      canonical: "./",
+      types: {
+        "application/rss+xml": `${siteMetadata.siteUrl}/tags/${slug}/feed.xml`,
+      },
+    },
+  });
+}
+
+export default async function Page({ params }: { params: { id: string } }) {
+  const id = decodeURI(params.id);
 
   const data: string[][] | null | undefined = await getGoogleSheetsData(
-    `Table!${+slug + 1}:${+slug + 1}`
+    `Table!${+id + 1}:${+id + 1}`
   );
 
   if (!data) {

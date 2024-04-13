@@ -4,7 +4,7 @@ export const headerNavLinks = [
   { href: "/delivery/", title: "Доставка" },
   { href: "/montage/", title: "Монтаж" },
   { href: "/service/", title: "Услуги" },
-  { href: "/warranty/", title: "Гарантия" },
+  { href: "/warranty/", title: "Полезная информация" },
   { href: "/about-us/", title: "О Нас" },
 ] as const;
 
@@ -58,7 +58,7 @@ export const heroData = [
   },
 ] as const;
 
-export const squareRect = ["20", "25", "35", "50"];
+export const squareRect = ["20", "25", "35", "от50"];
 
 export const quizData = [
   {
