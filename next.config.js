@@ -52,7 +52,7 @@ module.exports = {
   eslint: {
     dirs: ["."],
   },
-  // output: "export",
+  output: "export",
   images: {
     remotePatterns: [
       {
