@@ -48,6 +48,7 @@ const securityHeaders = [
 ];
 
 module.exports = {
+  experimental: { missingSuspenseWithCSRBailout: false, },
   eslint: {
     dirs: ["."],
   },
