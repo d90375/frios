@@ -66,10 +66,10 @@ export const quizData = [
     title: "Рассчитать стоимость кондиционера с установкой",
     buttonText: "Далее",
     quiz: [
-      { text: "Квартира", url: "/assets/images/quiz-step-1-1.png" },
-      { text: "Дом", url: "/assets/images/quiz-step-1-2.png" },
-      { text: "Офис", url: "/assets/images/quiz-step-1-3.png" },
-      { text: "Магазин", url: "/assets/images/quiz-step-1-4.png" },
+      { text: "Квартира", url: "/assets/images/quiz-step-1-1.webp" },
+      { text: "Дом", url: "/assets/images/quiz-step-1-2.webp" },
+      { text: "Офис", url: "/assets/images/quiz-step-1-3.webp" },
+      { text: "Магазин", url: "/assets/images/quiz-step-1-4.webp" },
     ],
   },
   {

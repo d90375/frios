@@ -47,7 +47,7 @@ export const Suggestion = () => {
   return (
     <div className="relative">
       <Image
-        src="/assets/images/back-3.png"
+        src="/assets/images/back-3.webp"
         alt="background-image-3"
         width="0"
         height="0"
@@ -62,7 +62,7 @@ export const Suggestion = () => {
           <div className="relative basis-[calc(1/2-80px)]">
             <Image
               className="mx-auto lg:mx-[80px] h-auto w-[288px] md:w-[300px] lg:w-[358px]"
-              src="/assets/images/woman-1.png"
+              src="/assets/images/woman-1.webp"
               alt="woman-image"
               width="358"
               height="600"

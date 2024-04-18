@@ -1,29 +1,32 @@
-import { genPageMetadata } from "@/app/seo";
+
+
+// import { genPageMetadata } from "@/app/seo";
 import { getGoogleSheetsData } from "@/gsheets";
-import { siteMetadata } from "@/utils/siteMetadata";
-import { Metadata } from "next";
+// import { siteMetadata } from "@/utils/siteMetadata";
+// import { Metadata } from "next";
 import Image from "next/image";
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: { slug: string };
-}): Promise<Metadata> {
-  const slug = decodeURI(searchParams.slug);
+// export async function generateMetadata({
+//   searchParams,
+// }: {
+//   searchParams: { slug: string };
+// }): Promise<Metadata> {
+//   const slug = decodeURI(searchParams.slug);
 
-  return genPageMetadata({
-    title: `установка кондиционера ${slug}`,
-    description: `${siteMetadata.title} ${slug} установка и монтаж кондиционеров брест`,
-    alternates: {
-      canonical: "./",
-      types: {
-        "application/rss+xml": `${siteMetadata.siteUrl}/tags/${slug}/feed.xml`,
-      },
-    },
-  });
-}
+//   return genPageMetadata({
+//     title: `установка кондиционера ${slug}`,
+//     description: `${siteMetadata.title} ${slug} установка и монтаж кондиционеров брест`,
+//     alternates: {
+//       canonical: "./",
+//       types: {
+//         "application/rss+xml": `${siteMetadata.siteUrl}/tags/${slug}/feed.xml`,
+//       },
+//     },
+//   });
+// }
 
-export default async function Page({ params }: { params: { id: string } }) {
+
+export default async function Page( { params }: { params: { id: string } }) {
   const id = decodeURI(params.id);
 
   const data: string[][] | null | undefined = await getGoogleSheetsData(
@@ -81,6 +84,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     desc2: el[37],
   };
 
+  
+
   return (
     <div className="px-5 bg-white rounded-lg pt-10 pb-20 flex flex-col items-start gap-5">
       <div className="container">
@@ -92,7 +97,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             src={
               product.imageUrl
                 ? product.imageUrl
-                : "/assets/images/kond-no-image.jpeg"
+                : "/assets/images/kond-no-image.webp"
             }
             alt={product.model ?? "картинка кондиционера"}
             width="0"
@@ -229,4 +234,10 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return new Array(50).fill(null).map((_e,i) => {
+    return {id: i.toString()}
+ }); 
 }

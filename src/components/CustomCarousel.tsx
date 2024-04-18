@@ -54,7 +54,7 @@ export const CustomCarousel = () => {
     >
       <Image
         className="rounded-[4px] w-full h-auto"
-        src="/assets/images/example-1.jpg"
+        src="/assets/images/example-1.webp"
         alt="carousel-alt"
         width="0"
         height="220"
@@ -62,7 +62,7 @@ export const CustomCarousel = () => {
       />
       <Image
         className="rounded-[4px] w-full h-auto"
-        src="/assets/images/example-1.jpg"
+        src="/assets/images/example-1.webp"
         alt="carousel-alt"
         width="0"
         height="220"
@@ -70,7 +70,7 @@ export const CustomCarousel = () => {
       />
       <Image
         className="rounded-[4px] w-full h-auto"
-        src="/assets/images/example-1.jpg"
+        src="/assets/images/example-1.webp"
         alt="carousel-alt"
         width="0"
         height="220"
@@ -78,7 +78,7 @@ export const CustomCarousel = () => {
       />
       <Image
         className="rounded-[4px] w-full h-auto"
-        src="/assets/images/example-1.jpg"
+        src="/assets/images/example-1.webp"
         alt="carousel-alt"
         width="0"
         height="220"
@@ -86,7 +86,7 @@ export const CustomCarousel = () => {
       />
       <Image
         className="rounded-[4px] w-full h-auto"
-        src="/assets/images/example-1.jpg"
+        src="/assets/images/example-1.webp"
         alt="carousel-alt"
         width="0"
         height="220"
@@ -94,7 +94,7 @@ export const CustomCarousel = () => {
       />
       <Image
         className="rounded-[4px] w-full h-auto"
-        src="/assets/images/example-1.jpg"
+        src="/assets/images/example-1.webp"
         alt="carousel-alt"
         width="0"
         height="220"

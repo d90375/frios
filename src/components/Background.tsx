@@ -10,7 +10,7 @@ export const Background = () => {
     <div className="-z-10 inset-0 absolute">
       <div className="relative">
         <Image
-          src="/assets/images/back-1.png"
+          src="/assets/images/back-1.webp"
           alt="background-1"
           width="0"
           height="0"
@@ -25,7 +25,7 @@ export const Background = () => {
       </div>
       {pathname === "/" && (
         <Image
-          src="/assets/images/back-2.png"
+          src="/assets/images/back-2.webp"
           alt="background-2"
           width="0"
           height="0"

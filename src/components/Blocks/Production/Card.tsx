@@ -32,7 +32,7 @@ export const Card = ({
 }: CardProp) => {
   const newRect = squareRect.map((el, index) => ({ value: index, label: el }));
   const currentRect = newRect.find((rect) => rect.label === square)!;
- // const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   // const params = new URLSearchParams(searchParams.toString());
   // params.set("slug", title?.replace(" ", "-") ?? "");
 
@@ -52,7 +52,7 @@ export const Card = ({
         >
           <Image
             className="rounded-[8px] w-[200px] max-h-[200px] h-auto mb-5 border border-transparent hover:border-gray-200"
-            src={url ? url : "/assets/images/kond-no-image.jpeg"}
+            src={url ? url : "/assets/images/kond-no-image.webp"}
             alt={title ?? "фото кондиционера"}
             height="0"
             width="200"
